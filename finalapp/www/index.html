@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Hello World</title>
+</head>
+
+<body>
+    <nav>
+        <ul class="tabs">
+            <li class="tab">
+                <a href="#home" data-role="pagelink" class="activetab">
+                    <object data="./img/home.svg" type="image/svg+xml" id="homeSVG" width="80%" height="80%"></object>
+                </a>
+            </li>
+            <li class="tab">
+                <a href="#stuff" data-role="pagelink" class="">
+                    <object data="./img/location.svg" type="image/svg+xml" id="homeSVG" width="80%" height="80%"></object>
+                </a>
+            </li>
+<!--
+            <li class="tab">
+    <a href="#other" data-role="pagelink" class="">
+        <object data="./img/contact.svg" type="image/svg+xml" id="homeSVG" width="80%" height="80%"></object>
+    </a>
+</li>-->
+        </ul>
+    </nav>
+
+    <div data-role="page" id="home" class="">
+        <div data-role="content">
+            <h2>Wel-come</h2>
+            <h2>This app is created by Pate0357.</h2>
+            <hr>
+            <h4>Map</h4>
+            <p>It uses the cordova map api.Map is generated through static map maker.It will ask you about permission and gives google static map with red marker which is pointing to your current location.
+                <hr>
+                <h4>Contact</h4>
+                <p>For the contact it uses the contact api.It shows all the contact from your phone.It is elemented 300ms touch dealy. </p>
+
+        </div>
+    </div>
+
+    <div data-role="page" id="stuff" class="hidden">
+        <div data-role="content">
+            <h3>Stuff</h3>
+            <div id="warpper"></div>
+        </div>
+    </div>
+
+<!--
+    <div data-role="page" id="other" class="hidden">
+    <div data-role="content">
+        <h3>Contact</h3>
+        <ul id="MyContacts"></ul>
+
+    </div>
+</div>-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>

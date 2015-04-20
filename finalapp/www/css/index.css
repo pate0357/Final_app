@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #FFD57C;
+    font-family: 'Lato', sans-serif;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+h2,
+h3,
+p,
+h4 {
+    padding: 0.2rem 2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+/********************************
+        TABS
+********************************/
+
+nav {
+    height: rem;
+    width: 100%;
+}
+
+ul.tabs {
+    width: 100%;
+    /*margin-bottom:30px;*/
+}
+
+.tabs li.tab {
+    background-color: #7F765D;
+    float: left;
+    height: 2.9rem;
+    display: inline-block;
+    width: 33.3333%;
+}
+
+.tabs li.tab a {
+    display: block;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    height: 2rem;
+    color: #fff;
+    text-decoration: none;
+    /*	border: 1px solid #666;*/
+    
+    background-color: #7F765D;
+    text-align: center;
+    border-top: 1px solid #666;
+    border-right: 1px solid #666;
+    border-left: 1px solid #666;
+}
+
+.tabs li.tab a.activetab {
+    background-color: #FFEBBA;
+    color: #0cf;
+    border-top: 1px solid #666;
+    border-right: 1px solid #666;
+    border-left: 1px solid #666;
+    /* 
+  to hide the border on top of the page 
+  for the active tab only
+  */
+    
+    position: relative;
+    z-index: 30;
+}
+/********************************
+        PAGES
+********************************/
+
+[data-role="page"] {
+    position: absolute;
+    top: 3rem;
+    color: #bbb;
+    margin-top: -1px;
+    left: 100%;
+    right: -10px;
+    transition: left 0.5s linear, right 0.5s linear;
+    z-index: 10;
+    /*** Items to trigger hardware acceleration ***/
+    
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    /*
+    -webkit-transition: all 500ms cubic-bezier(0.250, 0.250, 0.640, 0.620); 
+   -moz-transition: all 500ms cubic-bezier(0.250, 0.250, 0.640, 0.620); 
+     -o-transition: all 500ms cubic-bezier(0.250, 0.250, 0.640, 0.620); 
+        transition: all 500ms cubic-bezier(0.250, 0.250, 0.640, 0.620);   
+
+
+
+-webkit-transition-timing-function: cubic-bezier(0.250, 0.250, 0.640, 0.620); 
+   -moz-transition-timing-function: cubic-bezier(0.250, 0.250, 0.640, 0.620); 
+     -o-transition-timing-function: cubic-bezier(0.250, 0.250, 0.640, 0.620); 
+        transition-timing-function: cubic-bezier(0.250, 0.250, 0.640, 0.620);   
+*/
+}
+
+[data-role=page].active {
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #FFEBBA;
+    border-top: 1px solid #666;
+    color: black;
+}
+
+[data-role=page].show {
+    display: block;
+}
+
+[data-role=page].hidden {
+    display: none;
+}
+/*****
+[data-role="header"]{
+	background-color:#111;
+}
+[data-role="header"] h1{
+  text-shadow: 1px 1px 1px #0cf;
+  padding:0.4rem;
+  color:#d4d4d4;
+  text-align:center;
+  letter-spacing:0.3rem;
+  word-spacing: 1rem;
+  font-variant:small-caps;
+}
+********/
+
+[data-role="content"] {
+    padding-top: 1.0rem;
+}
+
+[data-role="content"] p:last-child {
+    padding-bottom: 4rem;
+}
+
+[data-rel="back"] {
+    float: left;
+    color: #fff;
+    padding: 0.3rem 1rem;
+    color: #0C3;
+    font-size: 1rem;
+    line-height: 2.0rem;
+    text-decoration: none;
+    display: none;
+}
+
+#myCanvas {
+    width: 100%;
+}
+
+object {
+    pointer-events: none;
+}
+
+#MyContacts {
+    padding-left: 0.3rem;
+    border-bottom: 1px solid #666;
+}
+
+#other {
+    padding-left: 0.3rem;
+    border-bottom: 1px solid #666;
+}
