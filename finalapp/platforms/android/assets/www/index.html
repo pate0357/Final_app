@@ -1,41 +1,91 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>-->
+    <title>Hello World</title>
+</head>
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+<body>
+    <nav>
+        <ul class="tabs">
+            <li class="tab">
+                <a href="#home" data-role="pagelink" class="activetab">
+
+                    <img src="img/camera64%20(1).png">
+
+                </a>
+            </li>
+            <li class="tab">
+                <a href="#stuff" data-role="pagelink" class="">
+
+                    <img src="img/stack21.png">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <div data-role="page" id="home" class="" class="pure-form">
+            <div data-role="content" class="takeimg">
+                <!--            <img id="myImage" src="" />-->
+                <div class="img_draw">
+                    <canvas id="c"></canvas>
+                </div>
+
+
+                <div class="img_setting">
+                    <fieldset class="pure-group">
+                        <input type="text" id="t" class="txtbox" placeholder="No more than 30 word" maxlength="30" />
+                        <br/>
+                        <form id="position" class="pure-radio">
+                            <input type="radio" name="1" id="top" value="top" checked="checked">Add to top
+
+                            <input type="radio" name="1" id="bottom" value="bottom">add to bottom
+                        </form>
+                        <div>
+                            <button id="b" class="pure-button pure-button-primary">Save text on image</button>
+
+
+                            <button id="b2" class="pure-button pure-button-primary">Save base-64 encoded thumbnail</button>
+                        </div>
+                        <br/>
+                        <canvas id="c"></canvas>
+                        <div id="thumbnail">
+                            <!-- we won't be able to output base-64 string here because of security restrictions -->
+                        </div>
+
+                    </fieldset>
+                </div>
             </div>
+
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        <!--    </div>-->
+
+        <div data-role="page" id="stuff" class="hidden">
+            <div data-role="content" class="main_thumbails">
+            </div>
+            <section data-role="content" class="showfull_image"></section>
+
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+
+
+</body>
+
 </html>

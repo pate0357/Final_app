@@ -7,6 +7,12 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>-->
     <title>Hello World</title>
 </head>
 
@@ -15,54 +21,71 @@
         <ul class="tabs">
             <li class="tab">
                 <a href="#home" data-role="pagelink" class="activetab">
-                    <object data="./img/home.svg" type="image/svg+xml" id="homeSVG" width="80%" height="80%"></object>
+
+                    <img src="img/camera64%20(1).png">
+
                 </a>
             </li>
             <li class="tab">
                 <a href="#stuff" data-role="pagelink" class="">
-                    <object data="./img/location.svg" type="image/svg+xml" id="homeSVG" width="80%" height="80%"></object>
+
+                    <img src="img/stack21.png">
                 </a>
             </li>
-<!--
-            <li class="tab">
-    <a href="#other" data-role="pagelink" class="">
-        <object data="./img/contact.svg" type="image/svg+xml" id="homeSVG" width="80%" height="80%"></object>
-    </a>
-</li>-->
         </ul>
     </nav>
+    <div>
+        <div data-role="page" id="home" class="" class="pure-form">
+            <div data-role="content" class="takeimg">
+                <!--            <img id="myImage" src="" />-->
+                <div class="img_draw">
+                    <canvas id="c"></canvas>
+                </div>
 
-    <div data-role="page" id="home" class="">
-        <div data-role="content">
-            <h2>Wel-come</h2>
-            <h2>This app is created by Pate0357.</h2>
-            <hr>
-            <h4>Map</h4>
-            <p>It uses the cordova map api.Map is generated through static map maker.It will ask you about permission and gives google static map with red marker which is pointing to your current location.
-                <hr>
-                <h4>Contact</h4>
-                <p>For the contact it uses the contact api.It shows all the contact from your phone.It is elemented 300ms touch dealy. </p>
+
+                <div class="img_setting">
+                    <fieldset class="pure-group">
+                        <input type="text" id="t" class="txtbox" placeholder="No more than 30 word" maxlength="30" />
+                        <br/>
+                        <form id="position" class="pure-radio">
+                            <input type="radio" name="1" id="top" value="top" checked="checked">Add to top
+
+                            <input type="radio" name="1" id="bottom" value="bottom">add to bottom
+                        </form>
+                        <div>
+                            <button id="b" class="pure-button pure-button-primary">Save text on image</button>
+
+
+                            <button id="b2" class="pure-button pure-button-primary">Save base-64 encoded thumbnail</button>
+                        </div>
+                        <br/>
+                        <canvas id="c"></canvas>
+                        <div id="thumbnail">
+                            <!-- we won't be able to output base-64 string here because of security restrictions -->
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
 
         </div>
-    </div>
+        <!--    </div>-->
 
-    <div data-role="page" id="stuff" class="hidden">
-        <div data-role="content">
-            <h3>Stuff</h3>
-            <div id="warpper"></div>
+        <div data-role="page" id="stuff" class="hidden">
+            <div data-role="content" class="main_thumbails">
+            </div>
+            <section data-role="content" class="showfull_image"></section>
+
         </div>
-    </div>
 
-<!--
-    <div data-role="page" id="other" class="hidden">
-    <div data-role="content">
-        <h3>Contact</h3>
-        <ul id="MyContacts"></ul>
 
     </div>
-</div>-->
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+
+
+
 </body>
 
 </html>
