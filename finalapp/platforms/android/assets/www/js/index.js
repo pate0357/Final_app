@@ -29,9 +29,8 @@ var app = {
     },
     onDomReady: function () {
         app.loadRequirements++;
-        //		if(app.loadRequirements === 2){
         app.start();
-        //		}
+      
     },
     start: function () {
 
@@ -98,8 +97,7 @@ var app = {
                 }
             }
         }
-        //    if(!preURL==url)
-        //    {
+   
         if (url == "home") {
             app.takephoto();
             app.showimg_text();
@@ -108,9 +106,9 @@ var app = {
 
             app.listthumbnail();
 
-            //            document.querySelector(".main_thumbails").innerHTML = "";
+        
         }
-        //}
+        
     },
 
     addDispatch: function (num) {
@@ -133,11 +131,7 @@ var app = {
             var touch = evt.changedTouches[0]; //this is the first object touched
 
             var newEvt = document.createEvent("MouseEvent"); //old method works across browsers, though it is deprecated.
-            /**
-            event.initMouseEvent(type, canBubble, cancelable, view,
-                             detail, screenX, screenY, clientX, clientY,
-                             ctrlKey, altKey, shiftKey, metaKey,
-                             button, relatedTarget); **/
+        
             newEvt.initMouseEvent("click", true, true, window, 1, touch.screenX, touch.screenY, touch.clientX, touch.clientY);
             //var newEvt = new MouseEvent("click");				//new method
             //REF: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent.MouseEvent
@@ -185,10 +179,7 @@ var app = {
         i.src = fileURI;
 
         document.getElementById("b").addEventListener("click", app.addText);
-        //        document.getElementById("b1").addEventListener("click", function () {
-        //            app.saveImg();
-        //            //            app.saveThumb();
-        //        });    
+        
         document.getElementById("b2").addEventListener("click", app.saveThumb);
 
     },
@@ -212,9 +203,7 @@ var app = {
             context.fillStyle = "red";
             context.strokeStyle = "gold";
             context.textAlign = "center";
-            //            context.fillText(txt, middle, bottom);
-            //            context.strokeText(txt, middle, bottom);
-
+        
             if (document.getElementById('top').checked) {
                 context.fillText(txt, middle, top);
                 context.strokeText(txt, middle, top);
@@ -259,9 +248,7 @@ var app = {
             context.fillStyle = "red";
             context.strokeStyle = "gold";
             context.textAlign = "center";
-            //            context.fillText(txt, middle, bottom);
-            //            context.strokeText(txt, middle, bottom);
-
+          
             if (document.getElementById('top').checked) {
                 context.fillText(txt, middle, top);
                 context.strokeText(txt, middle, top);
@@ -274,7 +261,7 @@ var app = {
 
 
         var thumbnail = c.toDataURL("image/jpeg", 1.0);
-        //        document.getElementById("thumbnail").innerHTML = thumbnail;
+    
         jpeg = encodeURIComponent(jpeg);
         thumbnail = encodeURIComponent(thumbnail);
 
@@ -285,11 +272,15 @@ var app = {
     savephp: function (thumbnail, jpeg) {
         //now do the ajax call then build your page
 
-        var deviceid = device.uuid;
+//        var deviceid = device.uuid;
 
+       var deviceid = "123";
+        
         var postdata = "dev=" + deviceid + "&img=" + jpeg + "&thumb=" + thumbnail;
-        app.sendRequest("http://faculty.edumedia.ca/griffis/mad9022/final-w15/save.php", app.callbacksave, postdata, "POST");
+        app.sendRequest("http://localhost:8888/final-w15/save.php", app.callbacksave, postdata, "POST");
 
+        //test the locally
+//        app.sendRequest("http://faculty.edumedia.ca/griffis/mad9022/final-w15/save.php", app.callbacksave, postdata, "POST");
     },
 
     callbacksave: function (data) {
@@ -298,18 +289,21 @@ var app = {
 
     listthumbnail: function () {
 
-        var deviceid = device.uuid;
-        app.sendRequest("http://faculty.edumedia.ca/griffis/mad9022/final-w15/list.php?dev=" + deviceid, app.showthumbnail, null, "GET");
+//        var deviceid = device.uuid;
+          var deviceid = "123";
+//        app.sendRequest("http://faculty.edumedia.ca/griffis/mad9022/final-w15/list.php?dev=" + deviceid, app.showthumbnail, null, "GET");
+        
+        app.sendRequest("http://localhost:8888/final-w15/list.php?dev=" + deviceid, app.showthumbnail, null, "GET");
     },
 
     showthumbnail: function (data) {
         var json = JSON.parse(data["response"]);
         console.log(json);
-        console.log(json.thumbnails);
+        console.log(json.thumnbails);
 
         document.querySelector(".main_thumbails").innerHTML = "";
-        for (var i = 0; i < json.thumbnails.length; i++) {
-            var img_id = json.thumbnails[i].id;
+        for (var i = 0; i < json.thumnbails.length; i++) {
+            var img_id = json.thumnbails[i].id;
             var main_div = document.createElement("div");
             main_div.setAttribute("class", "mainclassthumbnail");
             main_div.setAttribute("id", "thumbails" + i);
@@ -320,7 +314,7 @@ var app = {
             document.getElementById("thumbails" + i).appendChild(img);
             //            document.getElementById(img_id).addEventListener("click", app.showfullimage);
             app.addHammer(img);
-            var data = json.thumbnails[i].data;
+            var data = json.thumnbails[i].data;
             //            console.log(data);
             img.setAttribute("src", data);
 
@@ -329,7 +323,7 @@ var app = {
             del.setAttribute("class", "pure-button pure-button-primary deletebtn");
 
             del.value = "DELETE";
-            var delete_id = json.thumbnails[i].id;
+            var delete_id = json.thumnbails[i].id;
             console.log(delete_id);
             del.setAttribute("id", delete_id);
             document.getElementById("thumbails" + i).appendChild(del);
@@ -401,13 +395,14 @@ var app = {
     // if user click on that then it gives image_id.
     deleatethumbnail: function (delete_id) {
 
-        var deviceid = device.uuid;
+//        var deviceid = device.uuid;
+          var deviceid = "123";
         console.log(delete_id);
         //        var delete_id = ev.currentTarget.id;
         console.log(delete_id);
         //        var deviceid = "123";
         //        var postdata = "dev=" + deviceid + "&img_id=" + delete_id;
-        app.sendRequest("http://faculty.edumedia.ca/griffis/mad9022/final-w15/delete.php?dev=" + deviceid + "&img_id=" + delete_id, app.show_deleate_thumbnail, null, "GET");
+        app.sendRequest("http://localhost:8888/final-w15/delete.php?dev=" + deviceid + "&img_id=" + delete_id, app.show_deleate_thumbnail, null, "GET");
     },
 
     show_deleate_thumbnail: function (data) {
@@ -433,12 +428,13 @@ var app = {
 
     //this function will show full image
     showfullimage: function (target_img) {
-        var deviceid = device.uuid;
+//        var deviceid = device.uuid;
+          var deviceid = "123";
         console.log(target_img);
         //        console.log(img_id);
         //        var deviceid = "123";
 
-        app.sendRequest("http://faculty.edumedia.ca/griffis/mad9022/final-w15/get.php?dev=" + deviceid + "&img_id=" + target_img, app.showbigimage, null, "GET");
+        app.sendRequest("http://localhost:8888/final-w15/get.php?dev=" + deviceid + "&img_id=" + target_img, app.showbigimage, null, "GET");
     },
 
     showbigimage: function (data) {

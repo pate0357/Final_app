@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
@@ -13,7 +13,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/hammer.min.js"></script>
     <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>-->
-    <title>Hello World</title>
+    <title>Camera Roll Sysyem</title>
 </head>
 
 <body>
@@ -22,14 +22,14 @@
             <li class="tab">
                 <a href="#home" data-role="pagelink" class="activetab">
 
-                    <img src="img/camera64%20(1).png">
+                    <img class="sml_img" src="img/camera64%20(1).png">
 
                 </a>
             </li>
             <li class="tab">
                 <a href="#stuff" data-role="pagelink" class="">
 
-                    <img src="img/stack21.png">
+                    <img class="sml_img" src="img/stack21.png">
                 </a>
             </li>
         </ul>
@@ -45,7 +45,7 @@
 
                 <div class="img_setting">
                     <fieldset class="pure-group">
-                        <input type="text" id="t" class="txtbox" placeholder="No more than 30 word" maxlength="30" />
+                        <input type="text" id="t" class="txtbox" placeholder="Add Captation" maxlength="30" />
                         <br/>
                         <form id="position" class="pure-radio">
                             <input type="radio" name="1" id="top" value="top" checked="checked">Add to top
@@ -53,15 +53,15 @@
                             <input type="radio" name="1" id="bottom" value="bottom">add to bottom
                         </form>
                         <div>
-                            <button id="b" class="pure-button pure-button-primary">Save text on image</button>
+                            <button id="b" class="pure-button pure-button-primary">Captation</button>
 
 
-                            <button id="b2" class="pure-button pure-button-primary">Save base-64 encoded thumbnail</button>
+                            <button id="b2" class="pure-button pure-button-primary">Save Thumbnail</button>
                         </div>
                         <br/>
                         <canvas id="c"></canvas>
                         <div id="thumbnail">
-                            <!-- we won't be able to output base-64 string here because of security restrictions -->
+                            
                         </div>
 
                     </fieldset>
@@ -80,9 +80,9 @@
 
 
     </div>
-
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 
 
